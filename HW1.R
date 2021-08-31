@@ -32,12 +32,9 @@ library(Metrics)
 library(caret)
 library(caTools)
 airplane <- read.csv(file = "airplane.csv", header = T)
-
-smp_size <- floor(0.75 * nrow(airplane))
-set.seed(10)
-train_ind <- sample(seq_len(nrow(airplane)), size = smp_size)
-train <- airplane[train_ind, ]
-test <- airplane[-train_ind, ]
+test_dt = sample(1:79,20,replace=F, set.seed(10))
+train = airplane[-test_dt,]
+test = airplane[test_dt,]
 
 fit1 <- lm(max_speed_mph ~ poly(horsepower, degree = 2, raw = T), data = train)
 summary(fit1)
@@ -65,7 +62,7 @@ plot(fit4)
 print(anova(fit1, fit2, fit3, fit4))
 
 
-prediction <- predict(fit2, test)
+prediction <- predict(fit3, test)
 summary(prediction)
 data <- data.frame(pred = prediction, actual = test$max_speed_mph)
 mse <- mean((data$actual - data$pred)^2)
