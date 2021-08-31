@@ -1,16 +1,27 @@
 asphalt <- read.csv(file = "asphalt.csv", header = T)
-diele <- asphalt$dielectric_constant
-airv <- asphalt$air_void_.
-slm <- lm(airv ~ diele, data = asphalt)
+slm <- lm(air_void_. ~ dielectric_constant, data = asphalt) 
 summary(slm)
 layout(matrix(c(1,2,3,4),2,2)) 
 plot(slm)
 
 confint(slm)
 
-grid <- 
+grid <- data.frame(dielectric_constant = seq(4.2, 4.6, 0.01))
+muYx = predict(slm, new = grid, interval = "confidence")
+muYx 
 AirvPred = predict(slm, new = grid, interval = "prediction")
-
+AirvPred
+dev.new(width=10, height=8, unit="cm")
+plot(grid$dielectric_constant, muYx[,1], type = "l", lwd = 2, 
+     xlab = "dielectric constant", ylab = "air void (%)", ylim = c(0,10))
+lines(grid$dielectric_constant, muYx[,2], lty = 2)
+lines(grid$dielectric_constant, muYx[,3], lty = 2)
+lines(grid$dielectric_constant, AirvPred[,2], lty = 3, col = "red")
+lines(grid$dielectric_constant, AirvPred[,3], lty = 3, col = "red")
+points(asphalt$dielectric_constant, asphalt$air_void_., pch = 19, col = "blue")
+legend("topright", legend = c("fit", "95% CI", "95% PI", "actual"), 
+       lwd = c(2,1,1,NA), pch = c(NA,NA,NA,19), lty = c(1,2,3,NA), col = c("black", "black", "red", "blue"), 
+       bty = "n")
 #airplane problem
 install.packages("caTools")
 install.packages("caret")
