@@ -16,6 +16,7 @@ install.packages("caTools")
 install.packages("caret")
 install.packages("Metrics")
 library(tidyverse)
+library(ggplot2)
 library(Metrics)
 library(caret)
 library(caTools)
@@ -52,6 +53,49 @@ layout(matrix(c(1,2,3,4),2,2))
 plot(fit4)
 print(anova(fit1, fit2, fit3, fit4))
 
-prediction <- predict(fit3, test)
+
+prediction <- predict(fit2, test)
 summary(prediction)
-mse(actual = test$max_speed_mph, predicted = prediction)
+data <- data.frame(pred = prediction, actual = test$max_speed_mph)
+mse <- mean((data$actual - data$pred)^2)
+mse
+
+#coconut
+
+## Q.a
+fibers <- read.csv("fiber.csv", header = T)
+pairs(fibers)
+plot(fibers)
+cor(fibers) #strong positive correlation found between "grad" and "vel", positive correlation found between "cont" and "lngth" but not that strong. It would be a good try to start with additive model, and then use interaction model
+
+## model 1
+mr_fit1 <- lm(vel ~ cont + lngth + grad, data = fibers)
+plot(mr_fit1)
+summary(mr_fit1)
+
+## model 2
+mr_fit2 <- lm(vel ~ grad + lngth, data = fibers)
+plot(mr_fit2)
+summary(mr_fit2)
+
+## model 3
+mr_fit3 <- lm( vel ~ grad + lngth + cont 
+               + I(cont^2) + I(lngth^2) + I(grad^2) 
+               + cont*lngth + cont*grad + lngth*grad, 
+               data = fibers)
+plot(mr_fit3)
+summary(mr_fit3)
+
+## model 4
+mr_fit4 <- lm( vel ~ I(cont^2) + I(lngth^2) + I(grad^2) 
+               + cont*lngth + cont*grad + lngth*grad, 
+               data = fibers)
+plot(mr_fit4)
+summary(mr_fit4)
+
+## model 5
+mr_fit5 <- lm( vel ~ + I(lngth^2) + I(grad^2) 
+               + cont*lngth + lngth*grad, 
+               data = fibers)
+plot(mr_fit5)
+summary(mr_fit5)
