@@ -123,5 +123,27 @@ Rrm2 = glmnet(x_bos[train_bos,], y_bos[train_bos], alpha = 0,lambda = lam4, thre
 Rrpred2 = predict(Rrm2, s = lam4, newx=x_bos[test_bos,])
 mean((Rrpred2 - y_bos[test_bos])^2) #18.8724
 lam4 #0.0573
-### subset
+### subset selection
+predict.regsubsets = function(obj, new, id, ...) {
+  form = as.formula(obj$call[[2]])
+  mat = model.matrix(form, new)
+  coefi = coef(obj, id = id)
+  mat[, names(coefi)] %*% coefi
+}
+
+k = 10
+p = ncol(Boston) - 1
+fold = sample(rep(1:k, length = nrow(Boston)))
+cv.err = matrix(NA, k, p)
+for (i in 1:k) {
+  best.fit = regsubsets(crim ~ ., data = Boston[fold != i, ], nvmax = p)
+  for (j in 1:p) {
+    pred = predict(best.fit, Boston[fold == i, ], id = j)
+    cv.err[i, j] = mean((Boston$crim[fold == i] - pred)^2)
+  }
+}
+rmse.cv = sqrt(apply(cv.err, 2, mean))
+plot(rmse.cv, pch = 19, type = "b")
+which.min(rmse.cv) ## 9
+rmse.cv[which.min(rmse.cv)] ## 6.499 
 
