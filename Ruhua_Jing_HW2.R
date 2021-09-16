@@ -100,3 +100,28 @@ err.lasso = mean((Lspred-y[test])^2)
 err.lasso #1073491
 lam2 #1.977
 
+# 6.8.11
+## 6.8.11.a
+data("Boston")
+### lasso model
+x_bos <- model.matrix(crim ~ .-1, data = Boston)
+y_bos <- Boston$crim
+set.seed(123)
+train_bos = sample(1:nrow(x_bos), nrow(x_bos)/1.3)
+test_bos = (-train_bos)
+y.test = y[test_bos]
+cv.out = cv.glmnet(x_bos[train_bos,], y_bos[train_bos], alpha = 1)
+lam3 = cv.out$lambda.min
+Lsm_bos = glmnet(x_bos[train_bos,], y_bos[train_bos], alpha = 1,lambda = lam3)
+Lspred_bos = predict(Lsm_bos, s = lam3, newx = x_bos[test_bos,])
+mean((Lspred_bos - y_bos[test_bos])^2) #19.5585
+lam3 #0.0547
+### ridge regression
+cv.out = cv.glmnet(x_bos[train_bos,], y_bos[train_bos], alpha = 0)
+lam4 = cv.out$lambda.min
+Rrm2 = glmnet(x_bos[train_bos,], y_bos[train_bos], alpha = 0,lambda = lam4, thresh=1e-12)
+Rrpred2 = predict(Rrm2, s = lam4, newx=x_bos[test_bos,])
+mean((Rrpred2 - y_bos[test_bos])^2) #18.8724
+lam4 #0.0573
+### subset
+
