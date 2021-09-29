@@ -1,0 +1,80 @@
+airplane_type,horsepower,max_speed_mph
+88 Queen Air pressurized,380,214
+B 80 Queen Air 1973 thru 1978,380,216
+B 80 Queen Air - specs thru 1972,380,216
+A 80 Queen Air,380,219
+80 Queen Air,380,208
+70 Queen Air,340,208
+A 65 Queen Air,340,208
+65 Queen Air,340,200
+B 60 Duke pressurized (prior '78 t/o run=2006),380,246
+A 60 Duke pressurized,380,249
+60 Duke Pressurized,380,249
+H 18 Super Twin Beech,450,204
+G 18 Super Twin Beech,450,200
+E 18 Super Twin Beech,450,203
+D 18 S Twin Beech,450,200
+"H,J 50 Twin Bonanza supercharged",340,204
+"E,F,G 50 Twin Bonanza supercharged",340,209
+"D50,A,B,C,E Twin Bonanza",295,186
+C 50 Twin Bonanza,275,178
+B 50 Twin Bonanza,260,177
+50 Twin Bonanza,260,177
+58 P Baron(325) pressurized (range based on 190 gal fuel),325,261
+58 P Baron-press.('77 hgt=9/6) (range based on 190 gal fuel),310,256
+58 P Baron turbochg.- specs thru 1976,310,231
+58 TC Baron (325) turbochg-non-pressurized,325,261
+58 TC Baron (non-press/turbo) '78 length=9/2,310,250
+58 Baron (300 hp),300,208
+58 Baron ('76 & prior fuel=166 gal opt),285,208
+A56TC Turbo Baron,380,252
+56 TC Turbo Baron ('67 & '68 fuel=178 gal opt),380,252
+E 55 Baron ('70-'72 fuel=142 gal opt),285,208
+"C55, D55 Baron",285,210
+B 55 Baron (1978 & up),260,201
+B55 (SN955 & up=5000 g/w; SN 502 thru 954 elig 5100 g/w),260,205
+A 55 Baron,260,200
+55 Baron,260,200
+E 95 Travel Air (fuel inj.),180,183
+"B 95A, D 95A Travel Air (fuel inj.)",180,183
+"95, B95 Travel Air (95 = 4,000 lb. gross)",180,183
+76 Duchess,180,171
+B 36 TC Bonanza,300,213
+A 36 TC Bonanza(prior '80=optl fuel 74 gal),300,214
+A 36 Bonanza (300 hp),300,184
+A 36 Bonanza ('70 & '71 lgt=26/8) '80 + up fuel= 74 gal,285,179
+36 Bonanza,285,177
+V 35 A & B-TC Turbo Bonanza,285,217
+V 35B Bonanza ('80 & up=fuel std 74 gal),285,182
+V 35 A Bonanza,285,183
+V 35 TC Turbo Bonanza,285,209
+V 35 Bonanza,285,183
+S 35 Bonanza,285,184
+"N,P 35 Bonanza",260,178
+"K,M 35 Bonanza",250,183
+J 35 Bonanza,250,183
+H 35 Bonanza,240,179
+"E,F,G 35 Bonanza (E=2,725 lb. gross, F=2,750 lb.)",225,169
+"C, D 35 Bonanza",205,165
+"A,B 35 Bonanza (A=185 hp)",196,160
+35 Bonanza,185,160
+G 33 Bonanza,260,177
+F & E 33-C Bonanza (conventional tail),285,181
+F33A ('80 & up fuel std 74 gal),285,182
+E 33 A Bonanza (conventional tail),285,181
+F & E Bonanza (conventional tail),225,170
+C 33 A Debonair,285,181
+C 33 Debonair,225,170
+"A,B 33 Debonair",225,170
+33 Debonair,225,170
+"C-24R Sierra 200 (prior'78 svc. ceil=16,400)",200,145
+B-24R Sierra 200,200,140
+A-24R Sierra 200,200,148
+Super III Musketeer (A-23-24),200,137
+C 23 Sundowner (pre '76 fuel=52 gal) pre'82=less mph,180,128
+Custom III Musketeer,180,127
+"A 23, A23A Musketeer (A=2,400 lb gross)",165,127
+23 Musketeer,160,123
+B 19 Sport 150 (76' & prior fuel=52 gal),150,110
+"A 23-19, Sport III, Musketeer",150,122
+77 Skipper ('79-'80 height=7/11),115,106
