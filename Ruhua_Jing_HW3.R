@@ -76,7 +76,7 @@ OJ_train_tree <- tree(Purchase ~ ., data = OJ_train)
 summary(OJ_train_tree)
 
 ## c. a closer look at the model detail
-OJ_train_tree[1]
+OJ_train_tree
 
 ## d. plot the tree
 plot(OJ_train_tree)
